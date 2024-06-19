@@ -1,59 +1,59 @@
 <template>
-  	<main v-if="!loading" id="hello">
+  <main v-if="!loading" id="hello">
 
-    	<!-- gradients -->
-    	<div class="css-blurry-gradient-blue"></div>
-    	<div class="css-blurry-gradient-green"></div>
+    <!-- gradients -->
+    <div class="css-blurry-gradient-blue"></div>
+    <div class="css-blurry-gradient-green"></div>
 
-		<section class="hero">
-		
-			<div class="head">
+    <section class="hero">
+
+      <div class="head">
 				<span>
 					Hi all, I am
 				</span>
-				<h1>{{ config.dev.name }}</h1>
+        <h1>{{ config.dev.name }}</h1>
         <span class="diple flex">
           >&nbsp;
 				<h2 class="line-1 anim-typewriter max-w-fit"> {{ config.dev.role }} </h2>
         </span>
-			</div>
+      </div>
 
-			<div id="info">
+      <div id="info">
 				<span class="action">
 					// complete the game to continue
 				</span>
-				<span :class="{hide: isMobile}">
+        <span :class="{hide: isMobile}">
 					// you can also see it on my Github page
 				</span>
-				<span :class="{hide: !isMobile}">
+        <span :class="{hide: !isMobile}">
 					// find my profile on Github:
 				</span>
-				<p class="code">
-					<span class="identifier">
-						const
+        <p class="code">
+          <span class="variable-name">
+						github_link:
 					</span>
-					<span class="variable-name">
-						githubLink
+          <span class="identifier">
+						str
 					</span>
-					<span class="operator">
+          <span class="operator">
 						=
 					</span>
-					<a class="string" :href="'https://github.com/' + config.public.dev.contacts.social.github.user">
-						"https://github.com/{{ config.public.dev.contacts.social.github.user }}"
-					</a>
-				</p>
-			</div>
-		</section>
+          <a class="string" target="_blank" :href="'https://github.com/' + config.public.dev.contacts.social.github.user">
+            "https://github.com/{{ config.public.dev.contacts.social.github.user }}"
+          </a>
+        </p>
+      </div>
+    </section>
 
-		<section data-aos="fade-up" class="game" v-if="!isMobile">
-			<SnakeGame />
-		</section>
+    <section data-aos="fade-up" class="game" v-if="!isMobile">
+      <SnakeGame/>
+    </section>
 
-	</main>
+  </main>
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import {ref, onMounted, onBeforeUnmount} from 'vue'
 
 const config = useRuntimeConfig()
 
@@ -87,27 +87,29 @@ function handleResize() {
   padding-left: 275px;
   overflow: hidden;
 }
+
 .hero {
-	width: 100%;
-	justify-content: center;
-	
+  width: 100%;
+  justify-content: center;
+
 }
+
 .game {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	height: 100%;
-	justify-content: center;
-/* 	align-items: center; */
-	z-index: 20;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  /* 	align-items: center; */
+  z-index: 20;
 }
 
 #hello .hero {
-	display: flex;
-	flex-direction: column;
-	/* display: grid;
-	grid-template-columns: repeat(12, minmax(0, 1fr)); */
-	margin: 0rem;
+  display: flex;
+  flex-direction: column;
+  /* display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr)); */
+  margin: 0rem;
 }
 
 
@@ -139,8 +141,8 @@ function handleResize() {
 }
 
 #info {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 #info > span {
@@ -175,11 +177,11 @@ function handleResize() {
 }
 
 #info {
-	padding-block: 2.5rem;
+  padding-block: 2.5rem;
 }
 
 #info .action {
-	display: flex
+  display: flex
 }
 
 .hide {
@@ -192,10 +194,10 @@ function handleResize() {
   right: 5%;
   width: 300px;
   height: 300px;
-	border-radius: 0% 0% 50% 50%;
+  border-radius: 0% 0% 50% 50%;
   rotate: 10deg;
-	filter: blur(70px);
-  background: radial-gradient(circle at 50% 50%,rgba(77, 91, 206, 1), rgba(76, 0, 255, 0));
+  filter: blur(70px);
+  background: radial-gradient(circle at 50% 50%, rgba(77, 91, 206, 1), rgba(76, 0, 255, 0));
   opacity: 0.5;
   z-index: 10;
 }
@@ -206,9 +208,9 @@ function handleResize() {
   right: 30%;
   width: 300px;
   height: 300px;
-	border-radius: 0% 50% 0% 50%;
-	filter: blur(70px);
-  background: radial-gradient(circle at 50% 50%,rgba(67, 217, 173, 1), rgba(76, 0, 255, 0));
+  border-radius: 0% 50% 0% 50%;
+  filter: blur(70px);
+  background: radial-gradient(circle at 50% 50%, rgba(67, 217, 173, 1), rgba(76, 0, 255, 0));
   opacity: 0.5;
   z-index: 10;
 }
@@ -220,78 +222,89 @@ function handleResize() {
 /* Typewrite Animation */
 
 .line-1 {
-    width: fit-content;
-    border-right: 3px solid rgba(255,255,255,.75);
-    white-space: nowrap;
-    overflow: hidden;
-    padding-right: 2px;
+  width: fit-content;
+  border-right: 3px solid rgba(255, 255, 255, .75);
+  white-space: nowrap;
+  overflow: hidden;
+  padding-right: 2px;
 }
 
-.anim-typewriter{
-    animation: typewriter 3.5s steps(40) 1s 1 normal both,
-    blinkTextCursor 800ms steps(40) infinite normal;
+.anim-typewriter {
+  animation: typewriter 3.5s steps(40) 1s 1 normal both,
+  blinkTextCursor 800ms steps(40) infinite normal;
 }
 
-@keyframes typewriter{
-  from{width: 0;}
-  to{width: 100%;}
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
-@keyframes blinkTextCursor{
-  from{border-right-color: rgba(255,255,255,.75);}
-  to{border-right-color: transparent;}
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: rgba(255, 255, 255, .75);
+  }
+  to {
+    border-right-color: transparent;
+  }
 }
 
 
 /* mobile */
 @media (max-width: 768px) {
 
-	#hello {
-		padding-left: 0;
-	}
+  #hello {
+    padding-left: 0;
+  }
 
-	#hello .hero {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		margin: 1.75rem; /* 28px */
-	}
-	.head {
-		padding-top: 4rem; /* 40px */
-	}
+  #hello .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 1.75rem; /* 28px */
+  }
 
-	#hello .head h2, #hello .head .diple {
-		font-size: 20px;
-		color: #43D9AD;
-	}
-	
-	#info .action {
-		display: none;
-	}
+  .head {
+    padding-top: 4rem; /* 40px */
+  }
+
+  #hello .head h2, #hello .head .diple {
+    font-size: 20px;
+    color: #43D9AD;
+  }
+
+  #info .action {
+    display: none;
+  }
 
 }
 
 /* tablet */
 @media (min-width: 768px) and (max-width: 1024px) {
-	#hello {
-		padding-left: 0;
-	}
-	#hello .hero {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		margin: 1.75rem; /* 28px */
-	}
-	.head {
-		padding-top: 4rem; /* 40px */
-	}
+  #hello {
+    padding-left: 0;
+  }
+
+  #hello .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1.75rem; /* 28px */
+  }
+
+  .head {
+    padding-top: 4rem; /* 40px */
+  }
 
 }
 
 @media (min-width: 1024px) and (max-width: 1320px) {
-	#hello {
-		padding-left: 135px;
-	}
+  #hello {
+    padding-left: 135px;
+  }
 }
 
 
@@ -323,13 +336,14 @@ function handleResize() {
   }
 }
 
-@media (min-width: 1920px){
-	#hello {
-		padding-left: 310px;
-	}
-	#hello .head h1 {
-		font-size: 62px;
-	}
+@media (min-width: 1920px) {
+  #hello {
+    padding-left: 310px;
+  }
+
+  #hello .head h1 {
+    font-size: 62px;
+  }
 }
 
 </style>
