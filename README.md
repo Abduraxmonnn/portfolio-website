@@ -29,6 +29,11 @@ Thanks 🤘 and enjoy it!
 ```sh
 git clone https://github.com/alexdeploy/developer-portfolio-v2.git
 ```
+1.1. Clone this project to your local machine.
+
+```sh
+git clone https://github.com/Abduraxmonnn/portfolio-website.git
+```
 
 2. Navigate to the project directory
 

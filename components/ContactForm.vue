@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     async handleSubmit() {
-      const apiUrl = process.env.VUE_APP_API_URL;
+      const apiUrl = import.meta.env.VITE_API_URL;
       if (!apiUrl) {
         console.error("API URL is not defined");
         return;
